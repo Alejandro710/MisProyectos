@@ -28,7 +28,6 @@ public class Calculadora {
         
         sumar = numero1+numero2;
 
-       System.out.println (sumar);
         
     }
     
@@ -60,7 +59,7 @@ public class Calculadora {
         Calculadora calculo1 = new Calculadora();
         
         
-        calculo1.sumar();
+        
         
         
         
@@ -68,13 +67,24 @@ public class Calculadora {
         Scanner sc = new Scanner (System.in);
         //sc: objeto de la calase Scanner
         
+        System.out.println("Ingrese el primer numero");
+        
         calculo1.numero1 = sc.nextInt ();
+        
         //calculo1: objeto (calculadora)
         //numero1: atributo
         //sc: objeto
         //nextInt: metodo
         
-        System.out.println(calculo1.numero1);
+        System.out.println("Ingrese el segundo numero");
+        
+        calculo1.numero2 = sc.nextInt ();
+        
+        calculo1.sumar();
+        
+        
+        
+        System.out.println("La suma total es:"+calculo1.sumar);
         
     }
     
