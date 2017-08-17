@@ -9,7 +9,7 @@
  * @author Español
  */
 
-//    import java.util.Scanner;
+    import java.util.Scanner;
 
 public class Calculadora {
     
@@ -59,9 +59,22 @@ public class Calculadora {
         
         Calculadora calculo1 = new Calculadora();
         
+        
         calculo1.sumar();
         
         
+        
+        
+        Scanner sc = new Scanner (System.in);
+        //sc: objeto de la calase Scanner
+        
+        calculo1.numero1 = sc.nextInt ();
+        //calculo1: objeto (calculadora)
+        //numero1: atributo
+        //sc: objeto
+        //nextInt: metodo
+        
+        System.out.println(calculo1.numero1);
         
     }
     
