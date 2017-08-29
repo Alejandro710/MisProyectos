@@ -1,7 +1,7 @@
 
 /**
  *
- * @author 
+ * @author Alejandro
  */
 import javax.swing.JOptionPane;
 public class toUpperCase {
