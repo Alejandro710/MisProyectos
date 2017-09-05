@@ -10,6 +10,12 @@
  */
 public class FormBanco extends javax.swing.JFrame {
 
+    float acumulador = 0;
+    int contador1 = 0;
+    int contador2 = 0;
+        
+    
+   
     /**
      * Creates new form FormBanco
      */
@@ -34,7 +40,8 @@ public class FormBanco extends javax.swing.JFrame {
         txt2 = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
         txt3 = new javax.swing.JTextField();
-        txt4 = new javax.swing.JTextField();
+        btnDescontar = new javax.swing.JButton();
+        jlTotal = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,6 +63,12 @@ public class FormBanco extends javax.swing.JFrame {
         jl4.setText("Total :");
         getContentPane().add(jl4, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 262, 70, 30));
         getContentPane().add(txt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 44, 278, -1));
+
+        txt2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(txt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 108, 101, -1));
 
         btnAgregar.setText("Agregar");
@@ -64,9 +77,17 @@ public class FormBanco extends javax.swing.JFrame {
                 btnAgregarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 158, -1, -1));
+        getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 80, -1));
         getContentPane().add(txt3, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 203, 101, -1));
-        getContentPane().add(txt4, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 272, 101, -1));
+
+        btnDescontar.setText("Descontar");
+        btnDescontar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDescontarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnDescontar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, -1, -1));
+        getContentPane().add(jlTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 270, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/celda.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -77,9 +98,54 @@ public class FormBanco extends javax.swing.JFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
-        float acumulador = 0;
+        float ingreso ;
+        
+        //ingreso = Integer.parseInt(this.txt2.getText());
+        
+        ingreso = Float.parseFloat(this.txt2.getText());
+
+        acumulador += ingreso;
+        contador1 ++;
+     
+        if (txt2.getText() == null) {
+            jlTotal.setText("No se ingreso nada");
+        }
+        
+        if (contador1 + contador2 >= 10) {
+            jlTotal.setText(acumulador+"/ Se ingreso 10 veces informaciòn");
+            btnAgregar.setEnabled(false);
+            btnAgregar.setEnabled(false);
+        } else {
+            jlTotal.setText(String.valueOf(acumulador));
+            txt2.setText("");
+        }
         
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnDescontarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescontarActionPerformed
+        // TODO add your handling code here:
+        float descuento;
+        descuento = Float.parseFloat(this.txt3.getText());
+   
+        acumulador -= descuento;
+        contador2 ++ ;
+        if (txt3.getText() == null) {
+            jlTotal.setText("No se ingreso nada");
+        }
+        
+        if (contador1 + contador2 >= 10) {
+            jlTotal.setText(acumulador+"/ Se ingreso 10 veces informaciòn");
+            btnAgregar.setEnabled(false);
+            btnDescontar.setEnabled(false);
+        } else {
+            jlTotal.setText(String.valueOf(acumulador));
+            txt3.setText("");
+        }
+    }//GEN-LAST:event_btnDescontarActionPerformed
+
+    private void txt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,18 +180,20 @@ public class FormBanco extends javax.swing.JFrame {
                 new FormBanco().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnDescontar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jl1;
     private javax.swing.JLabel jl2;
     private javax.swing.JLabel jl3;
     private javax.swing.JLabel jl4;
+    private javax.swing.JLabel jlTotal;
     private javax.swing.JTextField txt1;
     private javax.swing.JTextField txt2;
     private javax.swing.JTextField txt3;
-    private javax.swing.JTextField txt4;
     // End of variables declaration//GEN-END:variables
 }
