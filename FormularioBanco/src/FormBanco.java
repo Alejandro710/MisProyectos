@@ -106,9 +106,18 @@ public class FormBanco extends javax.swing.JFrame {
 
         acumulador += ingreso;
         contador1 ++;
+        
+        
+        try {
+            
+        } catch ( NumberFormatException ex ) {
+            .....aqui lo que quieras hacer si los campos estan vacios y tratan de calcular el total...
+}
      
-        if (txt2.getText() == null) {
-            jlTotal.setText("No se ingreso nada");
+        if(txt2.getText().length()!=0){
+            System.out.println("hay texto");
+        } else {
+            System.out.println("no hay texto");
         }
         
         if (contador1 + contador2 >= 10) {
