@@ -13,6 +13,7 @@ public class Animal {
 
     //--------------------------------------
     //Get Y set de los atributos:
+    
     public double getPeso() {
         return peso;
     }
@@ -37,6 +38,7 @@ public class Animal {
         this.nombre = nombre;
     }
 
+    
     //--------------------------------------
     //Constructor:
     public void Animal() {
